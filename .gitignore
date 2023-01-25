@@ -7,6 +7,12 @@
 # BlueJ files
 *.ctxt
 
+# Python cache
+__pycache__/
+
+# Light Bot test
+LightBot/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
