@@ -3,3 +3,4 @@
 
 
 ### 高性能 多语言 开源免费的****QQ机器人****
+###### 原QQBot-Remake - [QQBot-Remake](https://github.com/StarryYurnu/QQBot-Remake
