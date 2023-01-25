@@ -9,19 +9,19 @@ from sanic import Sanic
 from mcstatus import JavaServer
 from faker import Faker
 app = Sanic('qb')
-base_path = "QQBot-Remake/"
+base_path = "LightBot/"
 adminlist = ['1487084645']
 @app.websocket('/qb')
 async def qqbot(request, ws):
 #检测QQBot-Remake是否存在
     
-    if not os.path.exists("QQBot-Remake"):
+    if not os.path.exists("LightBot"):
         
-        os.mkdir("QQBot-Remake")
+        os.mkdir("LightBot")
         open(base_path + "data.json")
-    if not os.path.exists("QQBot-Remake/data.json"):
+    if not os.path.exists("LightBot/data.json"):
         
-        open('QQBot-Remake/data.json','a',encoding='utf-8')
+        open('LightBot/data.json','a',encoding='utf-8')
     print("已经生成QQBot-Remake文件")    
     faker = Faker(locale="zh-CN")
     exitkey = faker.pystr(16)
@@ -63,7 +63,7 @@ async def qqbot(request, ws):
                     }
                 await ws.send(json.dumps(ret))
             elif raw_message.startswith('register'):
-                if not os.path.exists('QQBot-Remake/' + str(qq)+ '.txt'):
+                if not os.path.exists('LightBot/' + str(qq)+ '.txt'):
                     
                 
  
@@ -82,7 +82,7 @@ async def qqbot(request, ws):
                         data.write(content)
                         data.close()
                    
-                if os.path.exists('QQBot-Remake/' + str(qq)+ ".txt"):
+                if os.path.exists('LightBot/' + str(qq)+ ".txt"):
                     ret = {
                         'action': 'send_group_msg',
                         'params': {
@@ -230,7 +230,7 @@ async def qqbot(request, ws):
                         }
                     }   
                         else:
-                            with open('QQBot-Remake/' + str(other_qq) + ".txt",'r') as file:
+                            with open('LightBot/' + str(other_qq) + ".txt",'r') as file:
                                 content = file.read()
                                 file.close()
                                 profile = content.split(' ',4) 
@@ -246,7 +246,7 @@ async def qqbot(request, ws):
                     }
                         await ws.send(json.dumps(ret))
             elif raw_message == "签到":
-                with open('QQBot-Remake/' + str(qq) + ".txt",'r') as file:
+                with open('LightBot/' + str(qq) + ".txt",'r') as file:
                     content = file.read()
                     file.close()
                     profile = content.split(' ',4) 
